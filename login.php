@@ -1,3 +1,22 @@
+<?php
+include('connexion_base.php');
+$sql="SELECT  email, mot_pass FROM administrateur";
+$result=$conn->$query($sql)
+if(isset($_POST['connecter'])){
+if(!empty($_POST['email'])AND !empty($_POST['mot_pass'])){
+    $row=$result->fetch(PDO::FETCH_ASSOC);
+    $email_defaut=$row["email"];
+    $mot_de_passe_defaut=$row["mot_de_passe"];
+    $email_saisi=htmlspecialchars($_POST['email']);
+    $mot_de_passe_saisi=htmlspecialchars($_POST['mot_de_passe']);
+}
+if($mot_de_passe==$mot_de_passe_saisi AND $email_defaut==$email_saisi){
+header('Location:index.php');
+}else{
+echo'<h6 ">votre mot de passe est incorrect!</h6>';
+}
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
