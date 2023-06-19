@@ -1,98 +1,119 @@
-.main {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: #383047;
-    max-height: 420px;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 7px 7px 10px 3px #24004628;
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 2, 29, 0.987);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 2, 29, 0.987);
+  border-radius: 10px;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: rgb(209, 201, 201);
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #bdb8b8;
+  font-size: 12px;
+}
+
+.login-box form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box button:hover {
+  background: #ffbc04;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ffbc04,
+              0 0 25px #ffbc04,
+              0 0 50px #ffbc04,
+              0 0 100px #ffbc04;
+}
+
+.login-box button span {
+  position: absolute;
+  display: block;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
   }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 24px;
+
+  50%,100% {
+    left: 100%;
   }
-  
-  /*checkbox to switch from sign up to login*/
-  #chk {
-    display: none;
-  }
-  
-  /*Login*/
-  .login {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .login label {
-    margin: 25% 0 5%;
-  }
-  
-  label {
-    color: #f8bf04;
-    font-size: 2rem;
-    justify-content: center;
-    display: flex;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .5s ease-in-out;
-  }
-  
-  .input {
-    width: 100%;
-    height: 40px;
-    background: #e0dede;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-  }
-  
-  /*Register*/
-  .register {
-    background: #f8bf04;
-    border-radius: 60% / 10%;
-    transform: translateY(5%);
-    transition: .8s ease-in-out;
-  }
-  
-  .register label {
-    color: #f8bf04;
-    transform: scale(.6);
-  }
-  
-  #chk:checked ~ .register {
-    transform: translateY(-60%);
-  }
-  
-  #chk:checked ~ .register label {
-    transform: scale(1);
-    margin: 10% 0 5%;
-  }
-  
-  #chk:checked ~ .login label {
-    transform: scale(.6);
-    margin: 5% 0 5%;
-  }   
-  /*Button*/
-  .form button {
-    width: 85%;
-    height: 40px;
-    margin: 12px auto 10%;
-    color: #f8bf04;
-    background: #383047;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: .2s ease-in;
-  }
-  
-  .form button:hover {
-    background-color: #f8bf04;
-  }
+}
+
+.login-box button span:nth-child(1) {
+  bottom: 2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffbc04);
+  animation: btn-anim1 2s linear infinite;
+}
+/* .ins{
+  color: #ffbc04;
+  background-color: white;
+  text-align: center;
+} */
+.ad:nth-child(1){
+  position: relative;
+  bottom: 50px;
+  color: #ffbc04;
+  text-align: center;
+  background: linear-gradient(90deg, transparent,);
+  animation: btn-anim1 linear infinite;
+  /* border-radius: 5px; */
+  box-shadow: 0 0 5px #fffffe,
+              /* 0 0 25px #ffbc04, */
+              /* 0 0 50px #ffbc04, */
+              0 0 100px #fdfdfd;
+}
+.logo{
+  border-radius: 75px;
+  position: relative;
+  left: 100px;
+  bottom: 90px;
+}
