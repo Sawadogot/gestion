@@ -4,13 +4,13 @@ $msg_success = "";
 $msg = "";
 
 if(isset($_POST['administrer'])){
-    $nom_complet = $_POST['nom_complet'];
+    $nom = $_POST['nom'];
     $email = $_POST['email'];
     $mot_passe = $_POST['mot_passe'];
 
-    $query = "INSERT INTO administrateur (nom_complet, email, mot_passe) VALUES (:nom_complet,:email, :mot_passe)";
+    $query = "INSERT INTO administrateur (nom, email, mot_passe) VALUES (:nom,:email, :mot_passe)";
     $query_run = $conn->prepare($query);
-    $query_run->bindParam(':nom_complet', $nom_complet);
+    $query_run->bindParam(':nom', $nom);
     $query_run->bindParam(':email', $email);
     $query_run->bindParam(':mot_passe', $mot_passe);
 
@@ -30,8 +30,9 @@ if(isset($_POST['administrer'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/styl.css">
+    <link rel="stylesheet" href="style/stylA.css">
     <title>Administrateur</title>
+
 </head>
 <body>
     <div class="container">
@@ -42,7 +43,7 @@ if(isset($_POST['administrer'])){
                 </div>
                 <div>
                     <h2 class="ad">
-                        INSCRIPTION-ADMIN
+                        CONNEXION
                     </h2>
                 </div>
                 <div class="user-box">
@@ -54,21 +55,21 @@ if(isset($_POST['administrer'])){
                     <label>E-mail</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="mot_pass" required="">
+                    <input type="password" name="mot_passe" required="">
                     <label>Password</label>
                 </div>
+                <div class="user-box">
+                <select name="type">
+                        <option value="">-- Sélectionnez le type --</option>
+                        <option value="admin">administrateur</option>
+                        <option value="secretaire">sécrétaire</option>
+                </select>
+                </div>
                 <center>
-                    <button type="submit" name="administrer">
-                        S'inscrire
-                    </button>
+                <button type="submit" name="administrer">Se connecter</button>
+                    </a>
                 </center>
             </form>
-            <center>
-                <a href="login.php">
-                    Se connecter
-                    <span></span>
-                </a>
-            </center>
         </div>
     </div>
     <?php
